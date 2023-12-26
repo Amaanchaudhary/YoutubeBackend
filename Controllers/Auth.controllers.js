@@ -36,6 +36,10 @@ export const Register = async (req , res) => {
 
         if(!name || !email || !password) return res.status(401).json({success : false , message : "All fields are mandatory"})
 
+        const existingUser = await UserModals.findOne({email : email})
+
+        if(existingUser) return res.status(401).json({success : false , message : "Email Already Exist"})
+
         const hashedPassword = await bcrypt.hash(password , 10); 
 
         // console.log(hashedPassword);
