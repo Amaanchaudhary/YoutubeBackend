@@ -6,7 +6,7 @@ export const Login = async (req , res) => {
     // res.send("Hello from login")
     try{
         const {email , password} = req.body.data
-        // console.log(email , password)
+        console.log(email , password , "email,opas")
         if(!email || !password ) return res.status(401).json({success : false , message : "All Fields are Mandatory"})
 
         const user = await UserModals.findOne({email})
