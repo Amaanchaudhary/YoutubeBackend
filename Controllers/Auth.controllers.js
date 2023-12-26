@@ -6,7 +6,7 @@ export const Login = async (req , res) => {
     // res.send("Hello from login")
     try{
         const {email , password} = req.body.data
-        console.log(email , password , "email,opas")
+        // console.log(email , password , "email,opas")
         if(!email || !password ) return res.status(401).json({success : false , message : "All Fields are Mandatory"})
 
         const user = await UserModals.findOne({email})
@@ -61,6 +61,7 @@ export const Register = async (req , res) => {
 
 export const getCurrentUser = async (req , res) => {
     try{
+        console.log("Called")
         const {token} = req.body
         if(!token) return res.status(401).json({success : false , message : "token is required"})
 
