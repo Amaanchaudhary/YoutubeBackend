@@ -22,7 +22,7 @@ export const Login = async (req , res) => {
         const token = await Jwt.sign({id : user._id}, process.env.JWT_SECRET)
         // console.log(token)
 
-        return res.status(200).json({success : true , message : "Login Successfull" , user : {name : user.name , id : user._id} , token})
+        return res.status(200).json({success : true , message : `Login Successfull, Welcome ${user.name} ` , user : {name : user.name , id : user._id} , token})
 
     }catch(error){
         res.status(500).json({success : false , message : error.message})
