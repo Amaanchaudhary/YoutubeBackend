@@ -16,7 +16,7 @@ app.use(cors())
 // app.get("/hello" , Hello)
 
 app.get("/" , function (req , res){
-    res.send("Welcome to Youtube Backend Server")
+    res.send("Hello Welcome to Youtube Backend Server")
 })
 
 app.use("/youtube/api/v1" , router)
